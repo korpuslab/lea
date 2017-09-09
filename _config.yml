@@ -1,0 +1,5 @@
+baseurl: /lea
+exclude: 
+   - README.md
+   - "*.ods"
+   - "*.odt"

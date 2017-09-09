@@ -1,0 +1,41 @@
+- id: wortarten-01
+  name: Aufgabe 1
+  category: Wortarten
+  base_url: /Themenbereiche/Wortarten/Aufgabe_1/
+  teacher_page: lehrende-anleitung-wortarten.html
+  student_page: studierende-anleitung-wortarten.html
+  student_index_page: index_wortarten-01.html
+  exercise_file: Aufgabendateien/Wortarten_Aufgabe.csv
+  solution_file: Aufgabendateien/Musterloesungen_Aufgabe.csv
+  material:
+    - name: STTS-Übersicht
+      file: STTS_gekuerzt.pdf
+  programs:
+    - Tabellenkalkulation
+- id: syntax-01
+  name: Aufgabe 1
+  category: Phrasen und syntaktische Funktionen
+  base_url: /Themenbereiche/Phrasen_und_syntaktische_Funktionen/Aufgabe_1/
+  teacher_page: lehrende-anleitung-syntax.html
+  student_page: studierende-anleitung-syntax.html
+  student_index_page: index_syntax-01.html
+  exercise_file: Aufgabendateien/syntax_aufgabendateien.zip
+  solution_file: Aufgabendateien/syntax_loesung.zip
+  material:
+    - name: Hilfestellung zur Satzanalyse
+      file: vorgehen-satzanalyse-synpathy.html
+  package:
+    - img/wolf.png
+    - img/eis.png
+    - img/1-phrasen-markieren.png
+    - img/2-satz-markieren.png
+    - img/3-satz-markieren.png
+    - img/4-beschriften.png
+    - img/5-beschriften.png
+    - img/6-phrasen-analysieren.png
+    - img/7-kopf-np-markieren.png
+    - img/8-leeres-label.png
+    - img/9-AdjP-markieren.png
+    - img/10-fertig.png
+  programs:
+    - Synpathy

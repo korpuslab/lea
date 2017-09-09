@@ -1,0 +1,66 @@
+Tabellenkalkulation:
+  title: Anleitungen zu csv-Dateien
+  download_url: https://de.libreoffice.org/download/
+  correction_tool:
+    name: PoS Correction and Evaluation Tool
+    url: /Annotationsprogramm/Tabellenkalkulation/Programme/lea_poscorr.jar
+  base_url: /Annotationsprogramm/Tabellenkalkulation/
+  teacher_page: lehrende-anleitung-csv.html
+  student_page: studierende-anleitung-csv.html
+  package:
+    - images-csv/studis/image1.png
+    - images-csv/studis/image2.png
+    - images-csv/studis/image3.png
+    - images-csv/studis/image4.png
+    - images-csv/studis/image5.png
+    - images-csv/studis/image7.png
+    - images-csv/studis/image8.png
+    - images-csv/studis/image9.png
+    - images-csv/studis/image10.png
+    - images-csv/studis/image11.png
+Synpathy:
+  title: Anleitungen zu Synpathy
+  download_url: /Annotationsprogramm/Synpathy/Programme/Synpathy.zip
+  base_url: /Annotationsprogramm/Synpathy/
+  teacher_page: lehrende-anleitung-synpathy.html
+  student_page: studierende-anleitung-synpathy.html
+  package:
+    - Beispieldateien/beispiel-zettel.tig
+    - Beispieldateien/syntax_features.xml
+    - img/delete.png
+    - img/entpacken.png
+    - img/entpacken-rechtsklick.png
+    - img/farben-aendern2.png
+    - img/farben-aendern3.png
+    - img/farben-aendern.png
+    - img/fehler-csv.png
+    - img/fehler-synpathy.png
+    - img/hut1.png
+    - img/hut2.png
+    - img/hut3.png
+    - img/hut-fehlklick.png
+    - img/korrekte-analyse-synpathy-beispiel.png
+    - img/non-terminal-nodes-2.png
+    - img/non-terminal-nodes.png
+    - img/open-feature-file-2.png
+    - img/open-feature-file.png
+    - img/open-file-2.png
+    - img/open-file.png
+    - img/primary-edge-2.png
+    - img/primary-edge.png
+    - img/synpathy-beispiel-eis.png
+    - img/textdatei-erstellen.png
+    - img/zettel-1.png
+    - img/zettel-2.png
+    - img/zettel-3.png
+    - img/zettel-4.png
+    - img/zettel-5.png
+    - img/zettel-6.png
+    - img/zettel-7.png
+    - img/zettel-8.png
+    - img/zettel-9.png
+    - img/zettel-final-2.png
+    - img/zettel-final.png
+    - img/zettel-labels-ausblenden-2.png
+    - img/zettel-labels-ausblenden.png
+    - Programme/Synpathy.zip

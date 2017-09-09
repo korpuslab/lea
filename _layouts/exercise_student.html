@@ -1,0 +1,34 @@
+---
+layout: base
+---
+
+{% include assign_exercise.md %}
+{% include get_relative_baseurl %}
+
+<div class="menu">
+<p>
+<a href="{{relative-baseurl}}/index.html">Zur&uuml;ck zur &Uuml;bersicht</a>
+</p>
+<p>
+{% for program in exercise.programs %}
+{% assign p = site.data.programs[program] %}
+<a href="{{relative-baseurl}}{{p.base_url}}{{p.student_page}}">{{p.title}}</a><br />
+{% endfor %}
+</p>
+
+<p>
+<b>Aufgabendatei</b><br/>
+<a href="{{exercise.exercise_file}}">Aufgabe</a>
+</p>
+
+<p>
+<b>Zusatzmaterial</b><br/>
+{% for m in exercise.material %}
+<a href="{{m.file}}">{{m.name}}</a><br />
+{% endfor %}
+</p>
+</div>
+
+<h1>Anleitung zu {{exercise.name}} zum Thema {{exercise.category}}</h1>
+
+{{ content }}

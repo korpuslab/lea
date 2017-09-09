@@ -1,0 +1,17 @@
+{% comment %}
+https://github.com/jekyll/jekyll/issues/332#issuecomment-72088429
+{% endcomment %}
+{% assign relative-baseurl = "" %}
+{% assign canon = page.url | append: "page.html" | split: "/" %}
+{% for item in canon offset:2 %}
+  {% assign relative-baseurl = relative-baseurl | append:"../" %}
+{% endfor %}
+
+{% comment %}
+prepend ./ to make sure that it is never empty
+{% endcomment %}
+{% assign relative-baseurl = relative-baseurl | prepend :"./" %}
+{% comment %}
+remove the trailing slash
+{% endcomment %}
+{% assign relative-baseurl = relative-baseurl | split :"/" | join:"/" %}

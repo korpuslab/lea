@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<head>
+    <meta>
+        <date>2016/04/19 15:11:10</date>
+    </meta>
+    <annotation>
+        <feature name="word" domain="T" />
+        <feature name="cat" domain="NT">
+            <value name="S">Satz</value>
+            <value name="NP">Nominalphrase</value>
+            <value name="AdjP">Adjektivphrase</value>
+            <value name="AdvP">Adverbphrase</value>
+            <value name="PP">Präpositionalphrase</value>
+        </feature>
+        <edgelabel>
+            <value name="Kopf">Kopf</value>
+            <value name="fin.Verb">finites Verb</value>
+            <value name="Subj">Subjekt</value>
+            <value name="Akk.Obj.">Akkusativobjekt</value>
+            <value name="Dat.Obj.">Dativobjekt</value>
+            <value name="Gen.Obj.">Genitivobjekt</value>
+            <value name="Präp.Obj.">Präpositionalobjekt</value>
+            <value name="Adverbial">Adverbial</value>
+            <value name="Prädikativ">Prädikativ</value>
+            <value name="Attribut">Attribut</value>
+            <value name="--">entfernen/leer</value>
+        </edgelabel>
+        <secedgelabel />
+    </annotation>
+</head>
+

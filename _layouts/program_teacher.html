@@ -1,0 +1,26 @@
+---
+layout: base
+---
+
+{% include get_relative_baseurl %}
+
+<div class="menu">
+<p><a href="{{relative-baseurl}}/index.html">LEA-&Uuml;bersicht</a></p>
+<p><a href="{{site.data.programs[page.program].student_page}}">Technikanleitung f&uuml;r Studierende</a></p>
+<p><b>Programme</b></p>
+<ul>
+  <li><a href="{% unless site.data.programs[page.program].download_url contains '://' %}{{relative-baseurl}}{% endunless %}{{site.data.programs[page.program].download_url}}">{{page.program}}</a></li>
+  {% if site.data.programs[page.program].correction_tool %}<li><a href="{{relative-baseurl}}{{site.data.programs[page.program].correction_tool.url}}">Korrekturtool</a></li> {% endif %}
+</ul>
+<p><b>Aufgaben mit diesem Programm</b></p>
+<ul>
+{% assign exercises=site.data.exercises | where_exp:"item", "item.programs contains page.program" %}
+{% for ex in exercises %}
+<li><a href="{{relative-baseurl}}{{ex.base_url}}{{ex.teacher_page}}">{{ex.name}}</a></li>
+{% endfor %}
+</ul>
+</div>
+
+<h1>Anleitung {% if page.program_title %}{{page.program_title }}{% else %}{{page.program}}{% endif %} - Lehrende</h1>
+
+{{ content }}

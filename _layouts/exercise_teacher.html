@@ -1,0 +1,196 @@
+---
+layout: base
+---
+
+{% include assign_exercise.md %}
+{% include get_relative_baseurl %}
+
+<div class="menu">
+<p><a href="{{relative-baseurl}}/index.html">LEA-&Uuml;bersicht</a></p>
+<p><a href="{{exercise.student_page}}">Anleitung f&uuml;r Studierende</a></p>
+<p>
+<b>Aufgabendateien</b>
+<ul>
+<li><a href="{{exercise.exercise_file}}">Aufgabe</a></li>
+<li><a href="{{exercise.solution_file}}">Musterl&ouml;sung</a></li>
+</ul>
+</p>
+<p><b>Zus&auml;tzliches Material</b>
+<ul>
+{% for m in exercise.material %}
+<li><a href="{{m.file}}">{{m.name}}</a></li>
+{% endfor %}
+</ul>
+</p>
+{% for program in exercise.programs %}
+{% assign p = site.data.programs[program] %}
+<p><b>{{p.title}}</b>
+<ul>
+<li><a href="{{relative-baseurl}}{{p.base_url}}{{p.student_page}}">Technikanleitung f&uuml;r Studierende</a></li>
+<li><a href="{{relative-baseurl}}{{p.base_url}}{{p.teacher_page}}">Technikanleitung f&uuml;r Lehrende</a></li>
+</ul>
+</p>
+{% endfor %}
+<a href="#" onClick="getZip(); return false">Aufgabenpaket (zip-Datei)</a>
+</div>
+
+<h1>{{exercise.name}} zu {{exercise.category}} &#8210; Anleitung für die Lehrenden</h1>
+
+<p>
+In diesem Aufgabenpaket sind folgende Elemente enthalten:
+</p>
+
+<ul>
+    <li>Anleitung für Lehrende (dieses Dokument)</li>
+    <li><a href="{{exercise.student_page}}">Anleitung für Studierende</a></li>
+    <li>die Aufgabe</li>
+    <ul>
+        <li><a href="{{exercise.exercise_file}}">Aufgabe</a></li>
+        <li><a href="{{exercise.solution_file}}">Musterlösung</a></li>
+    </ul>
+    <li>Material</li>
+    <ul>
+        {% for m in exercise.material %}<li><a href="{{m.file}}">{{m.name}}</a></li>
+{% endfor %}
+    </ul>
+</ul>
+
+{% for p in exercise.programs %}
+{% assign program = site.data.programs[p] %}
+<p>
+Hier finden Sie die Technikanleitung zum Annotationsprogramm ({{p}}) für
+<a href="{{relative-baseurl}}{{program.base_url}}{{program.student_page}}">Studierende</a>
+und für
+<a href="{{relative-baseurl}}{{program.base_url}}{{program.teacher_page}}">Lehrende</a>.
+</p>
+{% endfor %}
+
+<p>
+Damit Sie alle notwendigen Materialien einfach an die Studierenden weitergeben
+können, sind die Aufgaben und Anleitungen zusätzlich in der Datei <a href="#" onClick="getZip(); return false">aufgabe.zip</a>
+zusammengefasst.
+Geben Sie den Studierenden bitte zusätzlich zur zip-Datei <a href="{% if exercise.student_intro_file %}{{exercise.student_intro_file}}{% else %}{{relative-baseurl}}/material/Anleitung-LEA.pdf{% endif %}">diese Anleitung</a> zum Umgang mit der zip-Datei.
+</p>
+
+{{ content }}
+
+{% include get_relative_baseurl %}
+<script type="text/javascript" src="{{relative-baseurl}}/media/js/lib/zip.js/WebContent/zip.js"></script>
+<script type="text/javascript" src="{{relative-baseurl}}/media/js/lib/FileSaver/FileSaver.min.js"></script>
+<script>
+
+ zip.workerScriptsPath = "{{relative-baseurl}}/media/js/lib/zip.js/WebContent/";
+
+ function getZip() {
+
+     // show the spinner to indicate the loading
+     var spinner = document.getElementById("spinner");
+     if(spinner != null) spinner.style.display = "block" ;
+
+     {% include assign_exercise.md %}
+     {% if exercise.package %}
+       {% assign files = exercise.package %}
+     {% else %}
+       {% comment %}Create an empty array if exercise package does not exist or is empty{% endcomment %}
+       {% assign files = "" | split: " " %}
+     {% endif %}
+     {% assign files = files | push: exercise.student_page %}
+     {% assign files = files | push: exercise.exercise_file %}
+     {% for m in exercise.material %}
+       {% assign files = files | push: m.file %}
+     {% endfor %}
+     {% for program in exercise.programs %}
+       {% assign filename = site.data.programs[program].base_url | append: site.data.programs[program].student_page %}
+       {% assign files = files | push: filename %}
+       {% for file in site.data.programs[program].package %}
+         {% assign filename = site.data.programs[program].base_url | append: file %}
+         {% assign files = files | push: filename %}
+       {% endfor %}
+     {% endfor %}
+     var files = [];
+     // count the number of files to be loaded
+     var files_to_load = 1;
+     {% for file in files %}
+     files_to_load++;
+     {% endfor %}
+
+     if (files_to_load > 0) {
+
+         function loadFileFromUrl(url, filename) {
+
+             var xhr = new XMLHttpRequest();
+             xhr.open('GET',  url, true);
+             xhr.responseType = 'blob';
+
+             xhr.onload = function(e) {
+                 if (this.status == 200) {
+
+                     files.push({
+                         name: filename,
+                         blob: this.response
+                     });
+                     files_to_load--;
+                     if (files_to_load == 0) {
+                         zipFiles(files);
+                     }
+                 }
+             };
+
+             xhr.send();
+         }
+
+         // get the path to the current page
+         curr_url = "{{page.url}}".substring(0, "{{page.url}}".lastIndexOf('/'));
+
+         {% for file in files %}
+
+         // if the url is a relative path, add curr_path before it
+         if (!"{{file}}".startsWith('/')) {
+             loadFileFromUrl('{{site.baseurl}}' + curr_url + '/' + '{{file}}',
+                             'LEA' + curr_url + '/' + '{{file}}');
+         }
+         else {
+             loadFileFromUrl('{{site.baseurl}}' + '{{file}}', 'LEA' + '{{file}}');
+         }
+
+         {% endfor %}
+         loadFileFromUrl('{{exercise.student_index_page}}', 'LEA/index.html');
+     }
+     else {
+         alert("Für dieses Paket sind keine Dateien zum Download festgelegt.");
+     }
+
+ }
+
+ function zipFiles(files) {
+
+     if (files.length > 0) {
+         zip.createWriter(new zip.BlobWriter("application/zip"), function(zipWriter) {
+
+             var f = 0;
+
+             function nextFile(f) {
+                 zipWriter.add(files[f]['name'], new zip.BlobReader(files[f]['blob']), function() {
+                     f++;
+                     if (f < files.length) {
+                         nextFile(f);
+                     } else {
+                         zipWriter.close(function(zippedBlob) {
+                             //hide the spinner and output file
+                             var spinner = document.getElementById("spinner");
+                             if(spinner != null) spinner.style.display = "none" ;
+                             saveAs(zippedBlob, "aufgabe.zip");
+                         });
+                     }
+                 });
+             }
+
+             nextFile(f);
+         });
+     }
+     else {
+         alert("List of files is empty");
+     }
+ }
+
+</script>

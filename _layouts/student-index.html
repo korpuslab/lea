@@ -1,0 +1,41 @@
+---
+layout: base
+---
+
+{% include assign_exercise.md %}
+{% include get_relative_baseurl %}
+
+<h1>LEA - Linguistic Exercises with Annotation tools</h1>
+
+<p>
+Sie haben ein LEA-Aufgabenpaket erhalten.
+Diese Aufgabe ist Teil von LEA (<i>Linguistic Excercises with Annotation tools</i>)
+einer Sammlung von Aufgaben zu verschiedenen Bereichen des linguistischen
+Grundwissens. Das Besondere an den Aufgaben ist, dass sie nicht mit Stift und
+Papier bearbeitet werden, sondern mit aktuellen Annotationstools aus der
+Sprachwissenschaft, d.h. mit in der Forschung gängigen Programmen, die zur
+Anreicherung von Texten mit linguistischen Informationen dienen. Die Benutzung
+der Programme wird Ihnen durch Anleitungen Schritt für Schritt erläutert. Neben
+der inhaltlichen Vertiefung des grammatischen Grundwissens werden Sie dadurch
+mit der digitalen Aufbereitung von Sprachdaten vertraut gemacht.
+</p>
+
+
+<p>
+    Lesen Sie als n&auml;chstes die <a href=".{{exercise.base_url}}{{exercise.student_page}}">Anleitung für die Aufgabe</a>.
+    Dort wird Ihnen alles erkl&auml;rt, was Sie zum Lösen der Aufgabe brauchen.
+</p>
+
+<p>{% assign program_number = exercise.programs | size %}
+F&uuml;r einen schnellen Zugriff finden Sie hier die
+{%if program_number  > 1 %}
+    Anleitung f&uuml;r die verwendeten Programme:
+{% else %}
+    Anleitung f&uuml;r das verwendeten Programm:
+{% endif %}
+<ul>
+{% for program in exercise.programs %}
+    <li><a href=".{{site.data.programs[program].base_url}}{{site.data.programs[program].student_page}}">Anleitung: {{program}}</a></li>
+{% endfor %}
+</ul>
+</p>
