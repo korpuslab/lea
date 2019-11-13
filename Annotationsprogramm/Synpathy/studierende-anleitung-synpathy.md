@@ -28,7 +28,7 @@ werden können. Ein einfache Satzanalyse in Synpathy könnte folgendermaßen aus
 ![](./img/synpathy-beispiel-eis.png)
 
 > Hintergrundwissen:  
-> Synpathy speichert die analysierten Sätze im Format [TIGER-XML](http://www.ims.uni-stuttgart.de/forschung/ressourcen/werkzeuge/TIGERSearch/doc/html/TigerXML.html). Diese können dann mit Programmen wie [TIGERSearch](http://www.ims.uni-stuttgart.de/forschung/ressourcen/werkzeuge/tigersearch.html) oder [ANNIS](http://corpus-tools.org/annis/) durchsucht werden.
+> Synpathy speichert die analysierten Sätze im Format [TIGER-XML](https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/TIGERSearch/doc/html/TigerXML.html). Diese können dann mit Programmen wie [TIGERSearch](https://www.ims.uni-stuttgart.de/forschung/ressourcen/werkzeuge/tigersearch/) oder [ANNIS](http://corpus-tools.org/annis/) durchsucht werden.
 > So könnten Sie z.B. Zeitungstexte mit Synpathy annotieren und am Ende Fragen beantworten wie: "Welche Arten von Attributen kommen in Nominalphrasen vor?" oder "Wieviele Elemente enthält die Verbalklammer im Durchschnitt?".
 
 ## Installation von Synpathy

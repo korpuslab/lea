@@ -13,7 +13,7 @@ Bevor Sie diese öffnen und bearbeiten, lesen Sie bitte die
 [Anleitung zum Umgang mit csv-Dateien]({{relative-baseurl}}{{site.data.programs.Tabellenkalkulation.base_url}}{{site.data.programs.Tabellenkalkulation.student_page}}).
 
 Weil Ihre Lösung am Ende automatisch mit einer Musterlösung abgeglichen wird, ist es wichtig, dass Sie die Wortarten einheitlich und nach einem vorgegegeben Tagset kennzeichnen (= "annotieren"). Ein Tagset ist eine verbindliche Liste von Bezeichnungen, die für eine Annotation verwendet werden dürfen. So könnte ein Tagset z.B. festlegen, dass immer "Subst." für Substantive geschrieben wird. Ein gängiges Tagset für die Wortartenannotation deutscher Texte ist das "Stuttgart-Tübingen TagSet" (STTS), das man 
-[hier](http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/TagSets/stts-table.html) ansehen kann. Hier werden die Substantive mit "NN" annotiert; Eigennamen erhalten den *Tag* "NE".   
+[hier](https://www.ims.uni-stuttgart.de/documents/ressourcen/lexika/TagSets/stts-table.html) ansehen kann. Hier werden die Substantive mit "NN" annotiert; Eigennamen erhalten den *Tag* "NE".   
 
 In der Datei [STTS_gekuerzt.pdf]({{realtive-baseurl}}{{exercise.baseurl}}STTS_gekuerzt.pdf), finden Sie eine vereinfachte Version dieses Tagsets mit Beispielen zur Illustration. Nutzen Sie bitte dieses Tagset für die Berarbeitung der Aufgabe. Es empfiehlt sich, die Datei während der Bearbeitung geöffnet zu haben.
 
